@@ -42,7 +42,7 @@ app.use('/wechat', wechat('wx2', function (req, res, next) {
   var message = req.weixin;
 
   if (message.Content === "h") {
-        res.reply("其实很简单！/:rose/:rose/:rose\n输入 夏侯惇或者xhd，即得 英雄【夏侯惇】\n输入 血影或者xylg，即得 物品【血影离光】\n你也可以输入" + types_arr.map(function(z) { return wrap_name(z[0]); }).join('、') + "这些词试试！/:8-)/:8-)/:8-)");
+        res.reply("热烈欢迎！");
         return;
       };
 
