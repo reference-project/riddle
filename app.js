@@ -102,10 +102,10 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // Longitude: '113.352425',
   // Precision: '119.385040',
   // MsgId: '5837397520665436492' }
-  if (weixin.Event == "subscribe") {
+  if (message.Event == "subscribe") {
     res.reply("嗨，欢迎使用英雄三国掌中宝！/:rose/:rose/:rose\n输入 夏侯惇或者xhd，即得 英雄【夏侯惇】\n输入 血影或者xylg，即得 物品【血影离光】\n嗯，就这么简单！/:8-)/:8-)/:8-)")
   } else {
-    if (weixin.Event == "unsubscribe") { res.reply("一定要走吗？/:P-(/:P-(，我，谢谢你！") };
+    if (message.Event == "unsubscribe") { res.reply("一定要走吗？/:P-(/:P-(，我，谢谢你！") };
   };
 })));
 
