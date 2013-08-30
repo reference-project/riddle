@@ -29,6 +29,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+// app.get('/wechat', routes.index);
+
+
 
 
 var wechat = require('wechat');
@@ -36,6 +39,8 @@ var wechat = require('wechat');
 app.use(express.query());
 app.use('/wechat', wechat('wx2', function (req, res, next) {
   // 微信输入信息都在req.weixin上
+  console.log(req.weixin);
+
   var message = req.weixin;
   if (message.FromUserName === 'diaosi') {
     // 回复屌丝(普通回复)
