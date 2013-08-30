@@ -74,19 +74,7 @@ app.use('/wechat', wechat('wx2', function (req, res, next) {
   //     }
   //   ]);
   // }
-})event(function (message, req, res, next) {
-      var weixin = req.weixin;
-      console.log("获得消息：" + util.inspect(weixin));
-      if (weixin.Event == "subscribe") {
-        res.reply("嗨，欢迎来到小宝日记")
-      } else {
-        if (weixin.Event == "unsubscribe") {
-          res.reply("一定要走吗？/:P-(/:P-(，我，谢谢你！")
-        };
-      };
-    })
-
-);
+}));
 
 
 http.createServer(app).listen(app.get('port'), function(){
