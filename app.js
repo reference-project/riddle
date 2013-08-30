@@ -103,9 +103,14 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // Precision: '119.385040',
   // MsgId: '5837397520665436492' }
   if (message.Event == "subscribe") {
-    res.reply("嗨，欢迎使用英雄三国掌中宝！/:rose/:rose/:rose\n输入 夏侯惇或者xhd，即得 英雄【夏侯惇】\n输入 血影或者xylg，即得 物品【血影离光】\n嗯，就这么简单！/:8-)/:8-)/:8-)")
-  } else {
-    if (message.Event == "unsubscribe") { res.reply("一定要走吗？/:P-(/:P-(，我，谢谢你！") };
+    res.reply([
+      {
+        title: '猜品牌第一弹★★★★☆',
+        description: 'A、这是美女 B、这是美女 C、这是美女',
+        picurl: 'http://img.xiami.com/images/artistpic/17/7117/1377164234_ZhoS_4.jpg',
+        url: 'http://www.xiami.com'
+      }
+    ]);
   };
 })));
 
