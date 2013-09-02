@@ -37,7 +37,8 @@ app.get('/users', user.list);
 var wechat = require('wechat');
 
 app.use(express.query());
-
+// app.use(connect.cookieParser());
+// app.use(connect.session({secret: 'keyboard cat', cookie: {maxAge: 60000}}));
 
 app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) {
   // message为文本内容
@@ -81,6 +82,14 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // MediaId: 'OMYnpghh8fRfzHL8obuboDN9rmLig4s0xdpoNT6a5BoFZWufbE6srbCKc_bxduzS',
   // Format: 'amr',
   // MsgId: '5837397520665436492' }
+    res.reply([
+      {
+        title: '猜品牌第一弹★★★★☆',
+        description: 'A、这是美女 B、这是美女 C、这是美女',
+        picurl: 'http://img.xiami.com/images/artistpic/17/7117/1377164234_ZhoS_4.jpg',
+        url: 'http://www.xiami.com'
+      }
+    ]);
 }).link(function (message, req, res, next) {
   // message为链接内容
   // { ToUserName: 'gh_d3e07d51b513',
