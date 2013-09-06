@@ -31,9 +31,6 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 // app.get('/wechat', routes.index);
 
-
-
-
 var wechat = require('wechat');
 
 app.use(express.query());
@@ -41,15 +38,25 @@ app.use(express.query());
 app.use(express.cookieParser());
 app.use(express.session({secret: 'keyboard cat', cookie: {maxAge: 60000}}));
 app.use('/wechat', wechat('some token', wechat.text(function (info, req, res, next) {
+  console.log(info);
+  console.log(req);
+  console.log(res);
   if (info.Content === '=') {
     var exp = req.wxsession.text.join('');
     req.wxsession.text = '';
     res.reply(exp);
+    console.log(exp);
   } else {
     req.wxsession.text = req.wxsession.text || [];
     req.wxsession.text.push(info.Content);
     res.reply('收到' + info.Content);
+    console.log(info.Content);
   }
+
+  if (message.Content === "h") {
+    res.reply("热烈欢迎！8-)");
+    return;
+  };
 })));
 
 
