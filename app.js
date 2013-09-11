@@ -64,7 +64,7 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // Content: 'http',
   // MsgId: '5837397576500011341' }
   if (message.Content === "h") {
-    res.reply("热烈欢迎！8-)");
+    res.reply("热烈欢迎！8-)" + message.MsgId + message.Content);
     return;
   };
 
@@ -97,9 +97,10 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // MediaId: 'OMYnpghh8fRfzHL8obuboDN9rmLig4s0xdpoNT6a5BoFZWufbE6srbCKc_bxduzS',
   // Format: 'amr',
   // MsgId: '5837397520665436492' }
+    console.log(message.MsgId)
     res.reply([
       {
-        title: '猜品牌第一弹★★★★☆',
+        title: '猜品牌第一弹★★★★☆' + message.MsgId,
         description: 'A、这是美女 B、这是美女 C、这是美女',
         picurl: 'http://img.xiami.com/images/artistpic/17/7117/1377164234_ZhoS_4.jpg',
         url: 'http://www.xiami.com'
@@ -126,6 +127,7 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // Longitude: '113.352425',
   // Precision: '119.385040',
   // MsgId: '5837397520665436492' }
+  console.log(message.MsgId)
   if (message.Event == "subscribe") {
     res.reply([
       {
