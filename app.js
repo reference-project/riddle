@@ -99,10 +99,10 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // MediaId: 'OMYnpghh8fRfzHL8obuboDN9rmLig4s0xdpoNT6a5BoFZWufbE6srbCKc_bxduzS',
   // Format: 'amr',
   // MsgId: '5837397520665436492' }
-    console.log(message.MsgId)
+    console.log(message)
     res.reply([
       {
-        title: '猜品牌第一弹★★★★☆' + message.MsgId,
+        title:  message.MsgId,
         description: 'A、这是美女 B、这是美女 C、这是美女',
         picurl: 'http://img.xiami.com/images/artistpic/17/7117/1377164234_ZhoS_4.jpg',
         url: 'http://www.xiami.com'
@@ -181,7 +181,6 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
 //   //   ]);
 //   // }
 // }));
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
