@@ -63,10 +63,12 @@ app.use('/wechat', wechat('wx2', wechat.text(function (message, req, res, next) 
   // MsgType: 'text',
   // Content: 'http',
   // MsgId: '5837397576500011341' }
-  if (message.Content === "h") {
-    res.reply("热烈欢迎！8-)" + message.MsgId + message.Content);
-    return;
-  };
+  var str = "来自用户" + message.FromUserName + "的消息\n"  + message.Content;
+  res.reply(str);
+  // if (message.Content === "h") {
+  //   res.reply("热烈欢迎！8-)" + message.MsgId + message.Content);
+  //   return;
+  // };
 
 }).image(function (message, req, res, next) {
   // message为图片内容
